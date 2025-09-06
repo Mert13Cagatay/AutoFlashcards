@@ -1,0 +1,190 @@
+import React from 'react';
+import Navbar from '@/components/layout/navbar';
+import { Card } from '@/components/ui/card';
+
+export default function TermsOfService() {
+  return (
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 pt-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Terms of Service
+            </h1>
+            <p className="text-gray-600 dark:text-gray-300">
+              Last updated: {new Date().toLocaleDateString()}
+            </p>
+          </div>
+
+          <Card className="p-8 space-y-8">
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                1. Acceptance of Terms
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  By accessing and using AutoFlashcards, you accept and agree to be bound by the terms 
+                  and provision of this agreement. If you do not agree to abide by the above, 
+                  please do not use this service.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                2. Service Description
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  AutoFlashcards is an educational platform that uses artificial intelligence to 
+                  transform your study notes into interactive flashcards. Our service includes:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>AI-powered flashcard generation from uploaded notes</li>
+                  <li>Spaced repetition study system</li>
+                  <li>Progress tracking and analytics</li>
+                  <li>Study session management</li>
+                  <li>Cross-device synchronization</li>
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                3. User Accounts and Responsibilities
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>You are responsible for:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Maintaining the security of your account credentials</li>
+                  <li>All activities that occur under your account</li>
+                  <li>Ensuring uploaded content doesn't violate copyright laws</li>
+                  <li>Using the service in accordance with applicable laws</li>
+                  <li>Providing accurate account information</li>
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                4. Prohibited Uses
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>You may not use our service to:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Upload copyrighted material without permission</li>
+                  <li>Share inappropriate, offensive, or harmful content</li>
+                  <li>Attempt to reverse engineer or hack our systems</li>
+                  <li>Use automated tools to access our service</li>
+                  <li>Violate any applicable laws or regulations</li>
+                  <li>Impersonate other users or entities</li>
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                5. Intellectual Property
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  You retain ownership of the content you upload. By using our service, 
+                  you grant us a limited license to process your content for the purpose 
+                  of generating flashcards and providing our services.
+                </p>
+                <p>
+                  Our platform, software, and AI models are protected by intellectual 
+                  property laws and remain our exclusive property.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                6. AI-Generated Content
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  Flashcards generated by our AI are based on your uploaded content. 
+                  While we strive for accuracy, AI-generated content may contain errors. 
+                  You should review all generated flashcards for accuracy before studying.
+                </p>
+                <p>
+                  We use OpenAI's services for content generation. Your content may be 
+                  processed by third-party AI services in accordance with their terms of service.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                7. Service Availability
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  We strive to maintain high service availability, but we cannot guarantee 
+                  uninterrupted access. We may temporarily suspend the service for maintenance, 
+                  updates, or technical issues.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                8. Limitation of Liability
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  Our liability is limited to the maximum extent permitted by law. 
+                  We are not liable for any indirect, incidental, or consequential damages 
+                  resulting from your use of our service.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                9. Termination
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  We may terminate or suspend your account at any time for violation of these terms. 
+                  You may terminate your account at any time by contacting us or using the 
+                  account deletion feature.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                10. Changes to Terms
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  We reserve the right to modify these terms at any time. 
+                  We will notify users of significant changes via email or platform notifications.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                11. Contact Information
+              </h2>
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>
+                  If you have questions about these Terms of Service, please contact us:
+                </p>
+                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                  <p><strong>Email:</strong> mertcagatay4@gmail.com</p>
+                  <p><strong>Address:</strong> AutoFlashcards</p>
+                </div>
+              </div>
+            </section>
+          </Card>
+        </div>
+      </div>
+    </>
+  );
+}
