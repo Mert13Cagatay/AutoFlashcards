@@ -1,3 +1,4 @@
+import React from 'react';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { FlashcardData } from './openai';
@@ -160,10 +161,11 @@ export const useAppStore = create<AppState>()(
       setSortOrder: (order) => set({ sortOrder: order }),
       
       // Study actions
-      startStudySession: (cards, sessionName = 'Quick Study') => set((state) => ({
+      startStudySession: (cards, sessionName = 'Quick Study') => set(() => ({
         studySession: {
           currentSession: {
             id: crypto.randomUUID(),
+            user_id: 'temp-user',
             name: sessionName,
             flashcard_ids: cards.map(c => c.id),
             created_at: new Date().toISOString(),
@@ -242,7 +244,7 @@ export const useAppStore = create<AppState>()(
         }
       })),
       
-      resetStudySession: () => set((state) => ({
+      resetStudySession: () => set(() => ({
         studySession: {
           currentSession: null,
           currentCardIndex: 0,
@@ -425,4 +427,4 @@ export const useGeneration = () => useAppStore((state) => ({
   setIsGenerating: state.setIsGenerating,
   setGenerationProgress: state.setGenerationProgress,
   setLastUploadedText: state.setLastUploadedText,
-}), shallow);
+}));

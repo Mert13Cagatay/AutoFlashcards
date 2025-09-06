@@ -25,7 +25,17 @@ const UploadPage = () => {
     difficulty: 'mixed' as 'easy' | 'medium' | 'hard' | 'mixed',
     categories: [] as string[],
   });
-  const [generatedFlashcards, setGeneratedFlashcards] = useState([]);
+  const [generatedFlashcards, setGeneratedFlashcards] = useState<Array<{
+    id: string;
+    question: string;
+    answer: string;
+    category: string;
+    difficulty: string;
+    created_at: string;
+    updated_at: string;
+    review_count: number;
+    success_count: number;
+  }>>([]);
 
   const handleFilesAccepted = async (files: File[]) => {
     setIsGenerating(true);

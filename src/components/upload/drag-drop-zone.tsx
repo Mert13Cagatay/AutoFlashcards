@@ -2,9 +2,9 @@
 
 import React, { useCallback, useState } from 'react';
 import { useDropzone, FileRejection } from 'react-dropzone';
+import NextImage from 'next/image';
 import { Upload, FileText, Image, AlertCircle, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
 
 interface FileWithPreview extends File {
   preview?: string;
@@ -28,7 +28,6 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
 }) => {
   const [uploadedFiles, setUploadedFiles] = useState<FileWithPreview[]>([]);
   const [textInput, setTextInput] = useState('');
-  const [, setUploadProgress] = useState(0);
 
   const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
     if (rejectedFiles.length > 0) {
@@ -146,9 +145,6 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
             <div className="text-center space-y-4">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto" />
               <p className="text-gray-600 dark:text-gray-400">Processing files...</p>
-              {uploadProgress > 0 && (
-                <Progress value={uploadProgress} className="w-64" />
-              )}
             </div>
           </div>
         )}
@@ -168,9 +164,11 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
               >
                 <div className="flex-shrink-0">
                   {file.preview ? (
-                    <img
+                    <NextImage
                       src={file.preview}
                       alt={file.name}
+                      width={40}
+                      height={40}
                       className="h-10 w-10 object-cover rounded"
                     />
                   ) : (

@@ -10,6 +10,7 @@ import {
   List, 
   Play,
   BookOpen,
+  Brain,
   Clock
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -391,8 +392,8 @@ const DashboardPage = () => {
                 value={`${sortBy}-${sortOrder}`}
                 onChange={(e) => {
                   const [newSortBy, newSortOrder] = e.target.value.split('-');
-                  setSortBy(newSortBy as any);
-                  setSortOrder(newSortOrder as any);
+                  setSortBy(newSortBy as 'created_at' | 'difficulty' | 'category' | 'review_count');
+                  setSortOrder(newSortOrder as 'asc' | 'desc');
                 }}
                 className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm"
               >
