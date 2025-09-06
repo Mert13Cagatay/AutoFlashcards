@@ -31,7 +31,7 @@ export default function ContactPage() {
                       Email Support
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Send us an email and we'll get back to you
+                      Send us an email and we&apos;ll get back to you
                     </p>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                     Ready to Get Started?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-8">
-                    Send us an email with your questions or feedback. We're here to help you 
+                    Send us an email with your questions or feedback. We&apos;re here to help you 
                     make the most of your study experience with AutoFlashcards.
                   </p>
                   
@@ -111,7 +111,7 @@ export default function ContactPage() {
                       <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-2">
                         <li>• Brief description of your question or issue</li>
                         <li>• Your account email (if applicable)</li>
-                        <li>• Any error messages you're seeing</li>
+                        <li>• Any error messages you&apos;re seeing</li>
                         <li>• Screenshots if relevant</li>
                       </ul>
                     </div>

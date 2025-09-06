@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { AlertTriangle, X } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import { Button } from './button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './dialog';
 
@@ -77,7 +77,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
               htmlFor="dont-ask-again" 
               className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer"
             >
-              Don't ask me again for deleting flashcards
+              Don&apos;t ask me again for deleting flashcards
             </label>
           </div>
         )}

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { UserButton, SignInButton, useUser } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
@@ -19,7 +18,7 @@ import {
 const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn } = useUser();
   const { 
     darkMode, 
     sidebarOpen, 

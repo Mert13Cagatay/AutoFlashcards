@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { useDropzone, FileRejection } from 'react-dropzone';
 import { Upload, FileText, Image, AlertCircle, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -28,9 +28,9 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
 }) => {
   const [uploadedFiles, setUploadedFiles] = useState<FileWithPreview[]>([]);
   const [textInput, setTextInput] = useState('');
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [, setUploadProgress] = useState(0);
 
-  const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: any[]) => {
+  const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
     if (rejectedFiles.length > 0) {
       // Handle rejected files
       console.log('Rejected files:', rejectedFiles);

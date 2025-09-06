@@ -149,7 +149,7 @@ export async function updateFlashcardReview(
       return false;
     }
 
-    const updateData: any = {
+    const updateData: Partial<DatabaseFlashcard> = {
       last_reviewed_at: new Date().toISOString(),
       review_count: existing.review_count + 1,
       success_count: success ? existing.success_count + 1 : existing.success_count,

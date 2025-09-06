@@ -1,20 +1,15 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
 import { 
   Plus, 
   Search, 
-  Filter, 
   Grid3X3, 
   List, 
   Play,
-  BarChart3,
   BookOpen,
-  Brain,
-  Trophy,
   Clock
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -418,7 +413,7 @@ const DashboardPage = () => {
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
               {selectedCategory ? (
                 <>
-                  Flashcards in "{selectedCategory}" ({filteredFlashcards.length})
+                  Flashcards in &quot;{selectedCategory}&quot; ({filteredFlashcards.length})
                 </>
               ) : (
                 <>
@@ -437,7 +432,7 @@ const DashboardPage = () => {
                   <div className="flex items-center">
                     <Mascot width={14} height={14} className="mr-1" />
                     <Play className="mr-2 h-4 w-4" />
-                    Study "{selectedCategory}" ({filteredFlashcards.length})
+                    Study &quot;{selectedCategory}&quot; ({filteredFlashcards.length})
                   </div>
                 </Button>
               )}

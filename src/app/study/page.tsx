@@ -181,7 +181,7 @@ const StudyPage = () => {
                 Study Session Complete!
               </h1>
               <p className="text-gray-600 dark:text-gray-300">
-                Great job! Here's how you performed:
+                Great job! Here&apos;s how you performed:
               </p>
             </div>
 

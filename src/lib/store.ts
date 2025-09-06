@@ -1,9 +1,7 @@
-import React from 'react';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { shallow } from 'zustand/shallow';
 import { FlashcardData } from './openai';
-import { DatabaseFlashcard, StudySession } from './supabase';
+import { StudySession } from './supabase';
 
 export interface AppFlashcard extends FlashcardData {
   id: string;
@@ -85,7 +83,7 @@ export interface AppState {
 
 export const useAppStore = create<AppState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       // Initial state
       darkMode: false,
       sidebarOpen: false,
@@ -119,7 +117,7 @@ export const useAppStore = create<AppState>()(
       setCurrentView: (view) => set({ currentView: view }),
       
       // Flashcard actions
-      setFlashcards: (flashcards) => set((state) => {
+      setFlashcards: (flashcards) => set(() => {
         const allCategories = [...new Set(flashcards.map(card => card.category))];
         return {
           flashcards,

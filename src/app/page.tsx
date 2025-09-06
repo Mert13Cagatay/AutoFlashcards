@@ -1,9 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useAppStore } from '@/lib/store';
 import Navbar from '@/components/layout/navbar';
 import HeroSection from '@/components/layout/hero-section';
 import FeatureCard from '@/components/layout/feature-card';
@@ -20,7 +18,6 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
-  const { setCurrentView } = useAppStore();
   const router = useRouter();
 
   const features = [

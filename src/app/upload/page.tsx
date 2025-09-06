@@ -119,8 +119,8 @@ const UploadPage = () => {
         success_count: card.success_count,
       }));
 
-      setGeneratedFlashcards(appFlashcards as any);
-      addFlashcards(appFlashcards as any);
+      setGeneratedFlashcards(appFlashcards);
+      addFlashcards(appFlashcards);
 
       setGenerationProgress(100);
       setCurrentStep('complete');
@@ -256,7 +256,7 @@ const UploadPage = () => {
                     </label>
                     <select
                       value={generationOptions.difficulty}
-                      onChange={(e) => setGenerationOptions(prev => ({ ...prev, difficulty: e.target.value as any }))}
+                      onChange={(e) => setGenerationOptions(prev => ({ ...prev, difficulty: e.target.value as 'easy' | 'medium' | 'hard' }))}
                       className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     >
                       <option value="mixed">Mixed Difficulty</option>
@@ -354,7 +354,7 @@ const UploadPage = () => {
                   </div>
                   <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
                     <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                      {new Set((generatedFlashcards as any[]).map(card => card.category)).size}
+                      {new Set(generatedFlashcards.map(card => card.category)).size}
                     </div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">Categories</div>
                   </div>

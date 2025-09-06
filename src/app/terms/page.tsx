@@ -59,7 +59,7 @@ export default function TermsOfService() {
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Maintaining the security of your account credentials</li>
                   <li>All activities that occur under your account</li>
-                  <li>Ensuring uploaded content doesn't violate copyright laws</li>
+                  <li>Ensuring uploaded content doesn&apos;t violate copyright laws</li>
                   <li>Using the service in accordance with applicable laws</li>
                   <li>Providing accurate account information</li>
                 </ul>
@@ -111,7 +111,7 @@ export default function TermsOfService() {
                   You should review all generated flashcards for accuracy before studying.
                 </p>
                 <p>
-                  We use OpenAI's services for content generation. Your content may be 
+                  We use OpenAI&apos;s services for content generation. Your content may be 
                   processed by third-party AI services in accordance with their terms of service.
                 </p>
               </div>
