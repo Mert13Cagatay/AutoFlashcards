@@ -11,6 +11,7 @@ import DragDropZone from '@/components/upload/drag-drop-zone';
 import { generateFlashcards } from '@/lib/openai';
 import { useAppStore, AppFlashcard } from '@/lib/store';
 import { saveFlashcards } from '@/lib/supabase';
+import { processMultipleFiles } from '@/lib/document-parser';
 import Navbar from '@/components/layout/navbar';
 
 const UploadPage = () => {
@@ -42,28 +43,20 @@ const UploadPage = () => {
     setGenerationProgress(10);
 
     try {
-      // Process files to extract text
-      let extractedText = '';
-      
-      for (const file of files) {
-        setGenerationProgress(20);
-        
-        if (file.type === 'text/plain' || file.type === 'text/markdown') {
-          const text = await file.text();
-          extractedText += text + '\n\n';
-        } else if (file.type === 'application/pdf') {
-          // For now, show a message that PDF processing needs additional setup
-          extractedText += `[PDF File: ${file.name}]\nPDF text extraction requires additional setup. Please copy and paste the text content instead.\n\n`;
-        } else {
-          extractedText += `[File: ${file.name}]\nUnsupported file type. Please copy and paste the text content.\n\n`;
-        }
-      }
+      // Process files to extract text using our document parser
+      const extractedText = await processMultipleFiles(files, (progress) => {
+        // Update progress based on file processing
+        const baseProgress = 20;
+        const fileProgress = (progress / 100) * 60; // Use 60% of progress for file processing
+        setGenerationProgress(baseProgress + fileProgress);
+      });
 
       setUploadedContent(extractedText);
-      setGenerationProgress(30);
+      setGenerationProgress(90);
       setCurrentStep('options');
     } catch (error) {
       console.error('Error processing files:', error);
+      alert('Failed to process one or more files. Please try again or copy and paste the text content.');
     } finally {
       setIsGenerating(false);
       setGenerationProgress(0);

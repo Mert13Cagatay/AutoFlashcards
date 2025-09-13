@@ -12,7 +12,8 @@ import {
   Clock,
   Trophy,
   BarChart3,
-  Home
+  Home,
+  LogOut
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -111,6 +112,11 @@ const StudyPage = () => {
     if (flashcards.length > 0) {
       startStudySession(flashcards.slice(0, 10), 'Quick Study Session');
     }
+  };
+
+  const handleExitStudy = () => {
+    endStudySession();
+    router.push('/dashboard');
   };
 
   const formatTime = (seconds: number) => {
@@ -265,15 +271,26 @@ const StudyPage = () => {
               Back to Dashboard
             </Button>
             
-            <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4" />
-                <span>{formatTime(studyTime)}</span>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
+                <div className="flex items-center space-x-2">
+                  <Clock className="h-4 w-4" />
+                  <span>{formatTime(studyTime)}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Trophy className="h-4 w-4" />
+                  <span>{Math.round(accuracy)}%</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Trophy className="h-4 w-4" />
-                <span>{Math.round(accuracy)}%</span>
-              </div>
+              
+              <Button
+                variant="outline"
+                onClick={handleExitStudy}
+                className="border-red-200 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
+              >
+                <LogOut className="mr-2 h-4 w-4" />
+                Exit Study
+              </Button>
             </div>
           </div>
 
@@ -366,6 +383,7 @@ const StudyPage = () => {
           </p>
         </div>
       </div>
+
     </div>
   );
 };

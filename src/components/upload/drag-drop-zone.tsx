@@ -39,7 +39,7 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
     const filesWithPreview = acceptedFiles.map((file) => ({
       ...file,
       id: Math.random().toString(36).substr(2, 9),
-      preview: file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined,
+      preview: file.type && file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined,
     }));
 
     setUploadedFiles((prev) => [...prev, ...filesWithPreview]);
@@ -79,7 +79,7 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
   };
 
   const getFileIcon = (file: File) => {
-    if (file.type.startsWith('image/')) {
+    if (file.type && file.type.startsWith('image/')) {
       return <Image className="h-6 w-6" />;
     }
     return <FileText className="h-6 w-6" />;
@@ -126,7 +126,7 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
             <p className="text-gray-600 dark:text-gray-400 mb-4">
               {isDragReject
                 ? 'Some files are not supported'
-                : `Support for PDF, TXT, MD, DOC files up to ${formatFileSize(maxSizeBytes)}`
+                : `Support for Word (.docx, .doc), PDF, TXT, MD files up to ${formatFileSize(maxSizeBytes)}`
               }
             </p>
             
@@ -166,7 +166,7 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
                   {file.preview ? (
                     <NextImage
                       src={file.preview}
-                      alt={file.name}
+                      alt={`Preview of ${file.name}`}
                       width={40}
                       height={40}
                       className="h-10 w-10 object-cover rounded"
@@ -243,7 +243,7 @@ const DragDropZone: React.FC<DragDropZoneProps> = ({
         <div className="flex items-center space-x-2 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-lg">
           <AlertCircle className="h-5 w-5 text-red-500" />
           <p className="text-sm text-red-700 dark:text-red-400">
-            Please upload only supported file types (PDF, TXT, MD, DOC) under {formatFileSize(maxSizeBytes)}.
+            Please upload only supported file types (Word .docx/.doc, PDF, TXT, MD) under {formatFileSize(maxSizeBytes)}.
           </p>
         </div>
       )}

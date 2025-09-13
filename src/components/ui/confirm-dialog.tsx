@@ -82,21 +82,23 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
           </div>
         )}
 
-        <DialogFooter className="flex space-x-2 sm:space-x-0">
-          <Button
-            variant="outline"
-            onClick={handleCancel}
-            className="w-full sm:w-auto"
-          >
-            {cancelText}
-          </Button>
-          <Button
-            variant={variant === 'destructive' ? 'destructive' : 'default'}
-            onClick={handleConfirm}
-            className="w-full sm:w-auto"
-          >
-            {confirmText}
-          </Button>
+        <DialogFooter>
+          <div className="flex flex-col gap-2 sm:flex-row sm:gap-3 w-full sm:justify-end">
+            <Button
+              variant="outline"
+              onClick={handleCancel}
+              className="w-full sm:w-auto order-2 sm:order-1"
+            >
+              {cancelText}
+            </Button>
+            <Button
+              variant={variant === 'destructive' ? 'destructive' : 'default'}
+              onClick={handleConfirm}
+              className="w-full sm:w-auto order-1 sm:order-2"
+            >
+              {confirmText}
+            </Button>
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>
